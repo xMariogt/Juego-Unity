@@ -4,7 +4,11 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 26
+<<<<<<< HEAD
   productGUID: 3a335b7dd1c9e344bbc0f272eeee31d0
+=======
+  productGUID: 6bf2215251ca46c82a79130a295b6b09
+>>>>>>> c5a34b98d19d6aea06ced2c1a99c5b46bc677a3b
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +17,11 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
+<<<<<<< HEAD
   productName: Juego
+=======
+  productName: Game2D
+>>>>>>> c5a34b98d19d6aea06ced2c1a99c5b46bc677a3b
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -283,6 +291,7 @@ PlayerSettings:
   AndroidValidateAppBundleSize: 1
   AndroidAppBundleSizeToValidate: 150
   m_BuildTargetIcons: []
+<<<<<<< HEAD
   m_BuildTargetPlatformIcons:
   - m_BuildTarget: iPhone
     m_Icons:
@@ -473,6 +482,9 @@ PlayerSettings:
       m_Height: 36
       m_Kind: 0
       m_SubKind: 
+=======
+  m_BuildTargetPlatformIcons: []
+>>>>>>> c5a34b98d19d6aea06ced2c1a99c5b46bc677a3b
   m_BuildTargetBatching: []
   m_BuildTargetShaderSettings: []
   m_BuildTargetGraphicsJobs:
@@ -818,14 +830,22 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
+<<<<<<< HEAD
   metroPackageName: Juego
+=======
+  metroPackageName: Game2D
+>>>>>>> c5a34b98d19d6aea06ced2c1a99c5b46bc677a3b
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
+<<<<<<< HEAD
   metroApplicationDescription: Juego
+=======
+  metroApplicationDescription: Game2D
+>>>>>>> c5a34b98d19d6aea06ced2c1a99c5b46bc677a3b
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
@@ -893,11 +913,19 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
+<<<<<<< HEAD
   cloudProjectId: ccf69b21-8ec4-4f83-93ac-498f809e4b8f
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: Juego
   organizationId: xchava
+=======
+  cloudProjectId: 58b1257d-3e76-43e6-a708-46a8c0a44a35
+  framebufferDepthMemorylessMode: 0
+  qualitySettingsNames: []
+  projectName: Game2D
+  organizationId: kenethurrutia1973
+>>>>>>> c5a34b98d19d6aea06ced2c1a99c5b46bc677a3b
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
