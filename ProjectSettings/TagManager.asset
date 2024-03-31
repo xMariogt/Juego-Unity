@@ -3,21 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-<<<<<<< HEAD
-  tags:
-  - Wall
-=======
   tags: []
->>>>>>> c5a34b98d19d6aea06ced2c1a99c5b46bc677a3b
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-<<<<<<< HEAD
-  - player
-=======
   - 
->>>>>>> c5a34b98d19d6aea06ced2c1a99c5b46bc677a3b
   - Water
   - UI
   - 
