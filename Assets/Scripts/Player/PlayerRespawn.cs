@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerRespawn : MonoBehaviour
 {
-    public float minYPosition = -5f; // Valor mínimo de la posición Y para reaparecer
+    public float minYPosition = -5f; // Valor mï¿½nimo de la posiciï¿½n Y para reaparecer
 
     private Vector3 inicio;
     private Rigidbody2D rb;
@@ -19,9 +19,9 @@ public class PlayerRespawn : MonoBehaviour
 
     private void Update()
     {
-        if(transform.position.x > 6)
+        if(transform.position.x > 5)
         {
-            respawnPosition.x = 6; //El respawn acorde a la posicion se asigna asi
+            respawnPosition.x = 5; //El respawn acorde a la posicion se asigna asi
 
         }else if(transform.position.x < 0)
         {
@@ -31,14 +31,14 @@ public class PlayerRespawn : MonoBehaviour
 
         if (transform.position.y < minYPosition)
         {
-            // Si la posición Y del personaje es menor que el mínimo, inicia el proceso de reaparición
+            // Si la posiciï¿½n Y del personaje es menor que el mï¿½nimo, inicia el proceso de reapariciï¿½n
             Respawn();
         }
     }
 
     private void Respawn()
     {
-        // Reposiciona al personaje en la posición de respawn
+        // Reposiciona al personaje en la posiciï¿½n de respawn
         transform.position = respawnPosition;
         rb.velocity = Vector2.zero; // Resetea la velocidad para evitar problemas de movimiento al reaparecer
     }
