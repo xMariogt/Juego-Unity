@@ -16,10 +16,14 @@ public class PlayerController : MonoBehaviour
     public float Speed;
     private bool isGrounded;
 
+    public AudioClip jumpSound;
+    private AudioSource audioSource;
+
     public Animator animator;
 
     private void Start() {
         rb = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnMove(InputValue movementValue)
@@ -58,7 +62,9 @@ public class PlayerController : MonoBehaviour
     {
         if (CheckGround.isGrounded) {
             rb.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
+            audioSource.PlayOneShot(jumpSound);
         }
+        
     }
 
     
