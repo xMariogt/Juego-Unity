@@ -7,8 +7,8 @@ public class PlayerRespawn : MonoBehaviour
     public float minYPosition = -5f; // Valor m�nimo de la posici�n Y para reaparecer
 
     //Control de las vidas
-    private int currentLives;
-    public int maxLives = 4;
+    public int currentLives;
+    public int maxLives = 5;
     //public LifesUI lifesUI;
     public List<GameObject> vidas = new List<GameObject>();
     private Vector3 inicio;
@@ -23,10 +23,7 @@ public class PlayerRespawn : MonoBehaviour
 
         currentLives = maxLives;
         // Agregar los GameObjects correspondientes a la lista de vidas
-        foreach (GameObject vida in vidas)
-        {
-            vida.SetActive(true); // Asegurarse de que los GameObjects estén activos al inicio
-        }
+        AgregarVidas();
     }
 
     private void Update()
@@ -56,10 +53,25 @@ public class PlayerRespawn : MonoBehaviour
         transform.position = respawnPosition;
         rb.velocity = Vector2.zero; // Resetea la velocidad para evitar problemas de movimiento al reaparecer
 
-        // Eliminar el último GameObject de la lista de vidas
+        QuitarVidas();
+    }
+
+    private void AgregarVidas()
+    {
+        for (int i = 0; i < maxLives; i++)
+        {
+            GameObject vida = vidas[i];
+            vida.SetActive(i < maxLives - 1); // Desactiva el último GameObject
+        }
+    }
+
+    private void QuitarVidas()
+    {
+        // Eliminar el último GameObject de la lista de vidas o el penúltimo si el último no está activado
+        int indiceInicio = (vidas.Count == maxLives && !vidas[maxLives - 1].activeSelf) ? maxLives - 2 : maxLives - 1;
         if (currentLives > 0 && currentLives <= vidas.Count)
         {
-            GameObject vidaToRemove = vidas[currentLives - 1];
+            GameObject vidaToRemove = vidas[indiceInicio];
             vidas.Remove(vidaToRemove);
             Destroy(vidaToRemove);
         }
