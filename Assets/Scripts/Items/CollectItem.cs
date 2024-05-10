@@ -1,8 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Cainos.PixelArtPlatformer_VillageProps;
-using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class CollectItem : MonoBehaviour
