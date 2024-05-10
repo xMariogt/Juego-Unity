@@ -6,14 +6,14 @@ public class SwordAppear : MonoBehaviour
 {
 
     public Animator animator;
-    public PlayerAttack playerAttack;
+    public PlayerStats playerStats;
     public MessageController messageController;
     public void SalirDelCofre()
     {
         animator.SetBool("ChestOpen", true);
-        playerAttack.tieneEspada = true;
+        playerStats.hasSword = true;
         messageController.ShowMessage();
-        
+        Destroy(gameObject, 1f);
     }
 
    

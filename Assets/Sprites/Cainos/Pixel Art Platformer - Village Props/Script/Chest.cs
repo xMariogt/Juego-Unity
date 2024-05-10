@@ -8,9 +8,13 @@ namespace Cainos.PixelArtPlatformer_VillageProps
     public class Chest : MonoBehaviour
     {
         public SwordAppear sword;
+        public GameObject swordObject;
 
         [FoldoutGroup("Reference")]
         public Animator animator;
+        public GameObject texto;
+
+        public PlayerStats playerStats;
 
         [FoldoutGroup("Runtime"), ShowInInspector, DisableInEditMode]
         public bool IsOpened
@@ -39,12 +43,23 @@ namespace Cainos.PixelArtPlatformer_VillageProps
         //al tocar a un jugador, se abre
         public void OnTriggerEnter2D(Collider2D player)
         {
-            if (player.CompareTag("Player") && !IsOpened)
+            if (player.CompareTag("Player") && !IsOpened && playerStats.hasKey)
             {
+                swordObject.SetActive(true);
                 Open();
                 sword.SalirDelCofre();
                 
+            } else {
+                if (!IsOpened && !playerStats.hasKey) {
+                    texto.SetActive(true);
+                }
             }
+        }
+
+        private void OnTriggerExit2D(Collider2D player) {
+            
+            texto.SetActive(false);
+            
         }
     }
 
