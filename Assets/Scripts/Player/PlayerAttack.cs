@@ -8,9 +8,10 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private float attackRange;
     [SerializeField] private float damage;
 
-    public bool tieneEspada = false;
+    public PlayerStats playerStats;
 
     private Animator animator;
+    public DetonarTNT detonaTNT;
 
     private void Start() {
         animator = GetComponent<Animator>();
@@ -18,8 +19,12 @@ public class PlayerAttack : MonoBehaviour
     }
 
     private void OnAttack() {
-        if (tieneEspada){
+        if (playerStats.hasSword){
             hit();
+        }
+        if (playerStats.hasTNT) {
+            detonaTNT.Detonar();
+            Debug.Log("Detonar");
         }
     }
 
