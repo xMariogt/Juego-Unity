@@ -10,7 +10,25 @@ public class DetonarTNT : MonoBehaviour
     public PlayerStats playerStats;
     public GameObject textoConteo;
     private int cuentaAtras = 3;
+    public GameObject textoInstrucciones;
 
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        
+        if (other.CompareTag("Player") && playerStats.hasTNT) {
+            textoInstrucciones.GetComponent<TextMesh>().text = "Pulsa X para detonar";
+        }
+        if (other.CompareTag("Player")) {
+            textoInstrucciones.SetActive(true);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other) {
+    
+        if (other.CompareTag("Player")) {
+            textoInstrucciones.SetActive(false);
+        }
+    }
 
     public void Detonar()
     {
@@ -20,8 +38,6 @@ public class DetonarTNT : MonoBehaviour
             GetComponent<SpriteRenderer>().enabled = true;
             textoConteo.SetActive(true);
             StartCoroutine(Contar());
-            
-
             
         }
 
