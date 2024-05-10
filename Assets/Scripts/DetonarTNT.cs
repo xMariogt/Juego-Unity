@@ -8,6 +8,8 @@ public class DetonarTNT : MonoBehaviour
     public float radius = 5f;
     public GameObject piedra;
     public PlayerStats playerStats;
+    public GameObject textoConteo;
+    private int cuentaAtras = 3;
 
 
     public void Detonar()
@@ -15,15 +17,28 @@ public class DetonarTNT : MonoBehaviour
         //si el tag player esta tocando el colider de la tnt
         if ( GetComponent<Collider2D>().IsTouchingLayers(LayerMask.GetMask("Player")))
         {
-            StartCoroutine(EsperarTresSegundos());
+            GetComponent<SpriteRenderer>().enabled = true;
+            textoConteo.SetActive(true);
+            StartCoroutine(Contar());
+            
+
+            
         }
 
     }
 
-    private IEnumerator EsperarTresSegundos()
+    private IEnumerator Contar(){
+        for (int i = cuentaAtras; i > 0; i--)
+        {
+            textoConteo.GetComponent<TextMesh>().text = i.ToString();
+            yield return new WaitForSeconds(1f);
+        }
+        Explotar();
+    }
+
+    private void Explotar()
     {
         // Esperar tres segundos
-        yield return new WaitForSeconds(3f);
             explosion.SetActive(true);
             Destroy(piedra, 0.7f);
             playerStats.hasTNT = false;
