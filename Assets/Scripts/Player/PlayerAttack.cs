@@ -8,6 +8,8 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private float attackRange;
     [SerializeField] private float damage;
 
+    public bool tieneEspada = false;
+
     private Animator animator;
 
     private void Start() {
@@ -16,7 +18,9 @@ public class PlayerAttack : MonoBehaviour
     }
 
     private void OnAttack() {
-        hit();
+        if (tieneEspada){
+            hit();
+        }
     }
 
 
