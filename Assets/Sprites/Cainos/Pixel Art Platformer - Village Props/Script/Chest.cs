@@ -39,7 +39,7 @@ namespace Cainos.PixelArtPlatformer_VillageProps
         //al tocar a un jugador, se abre
         public void OnTriggerEnter2D(Collider2D player)
         {
-            if (player.CompareTag("Player"))
+            if (player.CompareTag("Player") && !IsOpened)
             {
                 Open();
                 sword.SalirDelCofre();
