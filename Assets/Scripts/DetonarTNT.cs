@@ -11,6 +11,7 @@ public class DetonarTNT : MonoBehaviour
     public GameObject textoConteo;
     private int cuentaAtras = 3;
     public GameObject textoInstrucciones;
+    public AudioClip tntactivate;
 
 
     private void OnTriggerEnter2D(Collider2D other) {
@@ -37,6 +38,8 @@ public class DetonarTNT : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().enabled = true;
             textoConteo.SetActive(true);
+
+            GetComponent<AudioSource>().PlayOneShot(tntactivate);
             StartCoroutine(Contar());
             
         }
@@ -49,30 +52,29 @@ public class DetonarTNT : MonoBehaviour
             textoConteo.GetComponent<TextMesh>().text = i.ToString();
             yield return new WaitForSeconds(1f);
         }
+        textoConteo.SetActive(false);
         Explotar();
     }
 
     private void Explotar()
     {
-        // Esperar tres segundos
-            explosion.SetActive(true);
-            Destroy(piedra, 0.7f);
-            playerStats.hasTNT = false;
+        
+        explosion.SetActive(true);
+        piedra.GetComponent<SpriteRenderer>().enabled = false;
+        piedra.GetComponent<Collider2D>().enabled = false;
+        GetComponent<SpriteRenderer>().enabled = false;
+        playerStats.hasTNT = false;
+        StartCoroutine(Esperar());
+    }
 
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius);
+    private IEnumerator Esperar()
+    {
+        yield return new WaitForSeconds(0.8f);
+        explosion.GetComponent<SpriteRenderer>().enabled = false;
+        Destroy(explosion, 0.7f);
+        Destroy(piedra);
+        Destroy(gameObject);
 
-            foreach (Collider2D nearbyObject in colliders)
-            {
-                Rigidbody2D rb = nearbyObject.GetComponent<Rigidbody2D>();
-                if (rb != null)
-                {
-                    rb.AddForce(Vector2.left * 10, ForceMode2D.Impulse);
-                }
-            }
-
-            Destroy(gameObject);
-            Destroy(explosion, 0.9f);
-            
     }
 
     private void OnDrawGizmos()

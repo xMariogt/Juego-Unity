@@ -7,22 +7,25 @@ public class CollectItem : MonoBehaviour
     public PlayerStats playerStats;
     public string itemType;
     
+   
+
+    public MessageController messageController;
+    
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Player")) {
             
             text.SetActive(true);
-            Destroy(text, 1f);
 
+            Destroy(text, 1f);
             if (itemType == "key") {
                 playerStats.hasKey = true;
             } else if (itemType == "sword") {
-
+                messageController.ShowMessage();
                 playerStats.hasSword = true;
-                Destroy(item, 2f);
             } else if (itemType == "tnt") {
                 playerStats.hasTNT = true;
-                Debug.Log("TNT");
             }
+            
             Destroy(item);
         }
 
