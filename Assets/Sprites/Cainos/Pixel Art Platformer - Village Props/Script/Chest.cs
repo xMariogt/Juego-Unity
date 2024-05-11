@@ -9,6 +9,8 @@ namespace Cainos.PixelArtPlatformer_VillageProps
     {
         public SwordAppear sword;
         public GameObject swordObject;
+        public AudioClip openChest;
+        private AudioSource audioSource;
 
         [FoldoutGroup("Reference")]
         public Animator animator;
@@ -28,10 +30,24 @@ namespace Cainos.PixelArtPlatformer_VillageProps
         }
         private bool isOpened;
 
+        private void Start()
+        {
+            // Asegurémonos de que el GameObject tenga un componente AudioSource
+            audioSource = GetComponent<AudioSource>();
+            if (audioSource == null)
+            {
+                audioSource = gameObject.AddComponent<AudioSource>();
+            }
+
+            // Configuramos el clip de audio
+            audioSource.clip = openChest;
+        }
+
         [FoldoutGroup("Runtime"),Button("Open"), HorizontalGroup("Runtime/Button")]
         public void Open()
         {
             IsOpened = true;
+            audioSource.Play();
         }
 
         [FoldoutGroup("Runtime"), Button("Close"), HorizontalGroup("Runtime/Button")]

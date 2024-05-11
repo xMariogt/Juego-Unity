@@ -6,7 +6,11 @@ public class CollectItem : MonoBehaviour
     public GameObject item;
     public PlayerStats playerStats;
     public string itemType;
-    
+
+    //Sonido
+    public AudioClip recoger_vida;
+    public AudioSource audioSource;
+
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Player")) {
             
@@ -22,6 +26,9 @@ public class CollectItem : MonoBehaviour
             } else if (itemType == "tnt") {
                 playerStats.hasTNT = true;
                 Debug.Log("TNT");
+            } else if (itemType == "life"){
+                playerStats.life += 1;
+                audioSource.PlayOneShot(recoger_vida);
             }
             Destroy(item);
         }
