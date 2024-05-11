@@ -24,7 +24,6 @@ public class PlayerAttack : MonoBehaviour
         }
         if (playerStats.hasTNT) {
             detonaTNT.Detonar();
-            Debug.Log("Detonar");
         }
     }
 

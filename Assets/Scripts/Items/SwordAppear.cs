@@ -6,14 +6,17 @@ public class SwordAppear : MonoBehaviour
 {
 
     public Animator animator;
-    public PlayerStats playerStats;
-    public MessageController messageController;
+    
     public void SalirDelCofre()
     {
         animator.SetBool("ChestOpen", true);
-        playerStats.hasSword = true;
-        messageController.ShowMessage();
-        Destroy(gameObject, 1f);
+        StartCoroutine(Esperar());
+    }
+
+    private IEnumerator Esperar()
+    {
+        yield return new WaitForSeconds(1f);
+        this.GetComponent<Collider2D>().enabled = true;    
     }
 
    
