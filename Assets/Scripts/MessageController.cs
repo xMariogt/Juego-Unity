@@ -12,11 +12,13 @@ public class MessageController : MonoBehaviour
     private Coroutine mostrarCoroutine;
     private Coroutine ocultarCoroutine;
 
+
     private void Start() {
         altura = message.transform.position.y;
     }
     public void ShowMessage()
     {
+        GetComponent<AudioSource>().Play();
         if (mostrarCoroutine != null)
         {
             StopCoroutine(mostrarCoroutine);
