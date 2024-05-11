@@ -11,6 +11,7 @@ public class CollectItem : MonoBehaviour
     public AudioClip recoger_vida;
     public AudioSource audioSource;
     public MessageController messageController;
+    public PlayerRespawn playerRespawn;
     
 
     private void OnTriggerEnter2D(Collider2D other) {
@@ -27,7 +28,8 @@ public class CollectItem : MonoBehaviour
             } else if (itemType == "tnt") {
                 playerStats.hasTNT = true;
             } else if (itemType == "life"){
-                playerStats.life += 1;
+                playerStats.life++;
+                playerRespawn.AgregarVidas();
                 audioSource.PlayOneShot(recoger_vida);
             }
             
