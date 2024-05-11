@@ -9,6 +9,8 @@ public class CollectItem : MonoBehaviour
 
     //Sonido
     public AudioClip recoger_vida;
+    public AudioClip recoger_llave;
+    public AudioClip recoger_tnt;
     public AudioSource audioSource;
     public MessageController messageController;
     public PlayerRespawn playerRespawn;
@@ -22,11 +24,13 @@ public class CollectItem : MonoBehaviour
             Destroy(text, 1f);
             if (itemType == "key") {
                 playerStats.hasKey = true;
+                audioSource.PlayOneShot(recoger_llave);
             } else if (itemType == "sword") {
                 messageController.ShowMessage();
                 playerStats.hasSword = true;
             } else if (itemType == "tnt") {
                 playerStats.hasTNT = true;
+                audioSource.PlayOneShot(recoger_tnt);
             } else if (itemType == "life"){
                 playerStats.life++;
                 playerRespawn.AgregarVidas();

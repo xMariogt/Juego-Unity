@@ -122,6 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 1
+  bat_die: {fileID: 8300000, guid: b56ace680ecd3ef48bb9458d8344ac8a, type: 3}
 --- !u!58 &4914072979778172292
 CircleCollider2D:
   m_ObjectHideFlags: 0
