@@ -51473,6 +51473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3685b8179cd399c68833405a86fde1ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStats: {fileID: 1588259529}
   JumpForce: 3.53
   Speed: 2
   jumpSound: {fileID: 8300000, guid: 565035a66b4feeff4b0cdecdf723a3ff, type: 3}
@@ -51491,6 +51492,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStats: {fileID: 1588259529}
   minYPosition: -5
+  velocidadRebote: {x: 10, y: 2}
   vidas:
   - {fileID: 1415681082}
   - {fileID: 439189633}
@@ -51673,6 +51675,7 @@ MonoBehaviour:
   life: 4
   maxLife: 5
   hasTNT: 1
+  canMove: 1
 --- !u!1 &1634493889
 GameObject:
   m_ObjectHideFlags: 0
@@ -54440,11 +54443,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2947014575727086403, guid: 946a4f001fb76161aade9f567a09c0c8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.26
+      value: -6.068
       objectReference: {fileID: 0}
     - target: {fileID: 2947014575727086403, guid: 946a4f001fb76161aade9f567a09c0c8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.97
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 2947014575727086403, guid: 946a4f001fb76161aade9f567a09c0c8, type: 3}
       propertyPath: m_LocalPosition.z

@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerRespawn : MonoBehaviour
 {
     public PlayerStats playerStats;
     public float minYPosition = -5f; // Valor m�nimo de la posici�n Y para reaparecer
+    public Vector2 velocidadRebote; // Velocidad de rebote al ser golpeado
 
 
     //public LifesUI lifesUI;
@@ -13,6 +15,7 @@ public class PlayerRespawn : MonoBehaviour
     private Vector3 inicio;
     private Rigidbody2D rb;
     private Vector3 respawnPosition; //Variable para guardar la posicion donde se quiere respawnear
+    
 
     private void Start()
     {
@@ -49,6 +52,7 @@ public class PlayerRespawn : MonoBehaviour
         transform.position = respawnPosition;
         rb.velocity = Vector2.zero; // Resetea la velocidad para evitar problemas de movimiento al reaparecer
         QuitarVidas();
+        this.GetComponent<Animator>().SetTrigger("EndDie"); 
     }
 
     public void AgregarVidas()
@@ -72,4 +76,26 @@ public class PlayerRespawn : MonoBehaviour
             Debug.Log("Game Over");
         }
     }
+
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        if (other.gameObject.CompareTag("Enemy")) {
+            this.GetComponent<Animator>().SetTrigger("Die"); 
+            this.GetComponent<PlayerInput>().enabled = false;
+            
+            StartCoroutine(Esperar());
+
+        }
+    }
+
+    private IEnumerator Esperar(){
+        yield return new WaitForSeconds(0.85f);
+        this.GetComponent<PlayerInput>().enabled = true;
+        this.GetComponent<Animator>().SetTrigger("EndDie"); 
+        Respawn();
+
+    }
+
+
+
 }
