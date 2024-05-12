@@ -2121,6 +2121,8 @@ MonoBehaviour:
   playerStats: {fileID: 1588259529}
   itemType: sword
   recoger_vida: {fileID: 0}
+  recoger_llave: {fileID: 0}
+  recoger_tnt: {fileID: 0}
   audioSource: {fileID: 0}
   messageController: {fileID: 197929155}
   playerRespawn: {fileID: 0}
@@ -5477,7 +5479,9 @@ MonoBehaviour:
   playerStats: {fileID: 1588259529}
   itemType: key
   recoger_vida: {fileID: 0}
-  audioSource: {fileID: 0}
+  recoger_llave: {fileID: 8300000, guid: 787934f206dfb0845ab1aa811e229804, type: 3}
+  recoger_tnt: {fileID: 0}
+  audioSource: {fileID: 1364567949}
   messageController: {fileID: 0}
   playerRespawn: {fileID: 0}
 --- !u!1 &975703067
@@ -51652,6 +51656,7 @@ MonoBehaviour:
   damage: 1
   playerStats: {fileID: 1588259529}
   detonaTNT: {fileID: 1702389539}
+  espada: {fileID: 8300000, guid: 0d870bd049673758eaaed273e3f8aa91, type: 3}
 --- !u!114 &1588259529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53385,6 +53390,8 @@ MonoBehaviour:
   playerStats: {fileID: 1588259529}
   itemType: life
   recoger_vida: {fileID: 8300000, guid: ab015b54f40ef854cb22ad62bb98d4d6, type: 3}
+  recoger_llave: {fileID: 0}
+  recoger_tnt: {fileID: 0}
   audioSource: {fileID: 1364567949}
   messageController: {fileID: 197929155}
   playerRespawn: {fileID: 1588259525}
@@ -54434,11 +54441,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2947014575727086403, guid: 946a4f001fb76161aade9f567a09c0c8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.0935
+      value: -2.26
       objectReference: {fileID: 0}
     - target: {fileID: 2947014575727086403, guid: 946a4f001fb76161aade9f567a09c0c8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.7633
+      value: -2.97
       objectReference: {fileID: 0}
     - target: {fileID: 2947014575727086403, guid: 946a4f001fb76161aade9f567a09c0c8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -54547,9 +54554,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2102123687}
     - target: {fileID: 134499470632855854, guid: 158534bd2ece2f3b9975f48f4f7d01d0, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1364567949}
+    - target: {fileID: 134499470632855854, guid: 158534bd2ece2f3b9975f48f4f7d01d0, type: 3}
       propertyPath: playerStats
       value: 
       objectReference: {fileID: 1588259529}
+    - target: {fileID: 134499470632855854, guid: 158534bd2ece2f3b9975f48f4f7d01d0, type: 3}
+      propertyPath: recoger_tnt
+      value: 
+      objectReference: {fileID: 8300000, guid: e7640868795d3c446b88130753c9b6a3, type: 3}
     - target: {fileID: 1377684878181565890, guid: 158534bd2ece2f3b9975f48f4f7d01d0, type: 3}
       propertyPath: m_Name
       value: tnt

@@ -8,8 +8,13 @@ public class Enemy : MonoBehaviour
     private Animator animator;
     
 
+    //Sonido
+    public AudioClip bat_die;
+    private AudioSource audioSource;
+
     private void Start() {
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
 
@@ -23,6 +28,7 @@ public class Enemy : MonoBehaviour
 
     private void Die() {
         new WaitForSeconds(0.5f);
+        audioSource.PlayOneShot(bat_die);
         animator.SetTrigger("Die");
         Destroy(gameObject, 0.8f);
     }
