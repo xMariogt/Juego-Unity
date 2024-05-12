@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerRespawn : MonoBehaviour
 {
@@ -51,6 +52,7 @@ public class PlayerRespawn : MonoBehaviour
         transform.position = respawnPosition;
         rb.velocity = Vector2.zero; // Resetea la velocidad para evitar problemas de movimiento al reaparecer
         QuitarVidas();
+        this.GetComponent<Animator>().SetTrigger("EndDie"); 
     }
 
     public void AgregarVidas()
@@ -78,19 +80,22 @@ public class PlayerRespawn : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.CompareTag("Enemy")) {
-            this.GetComponent<Animator>().SetTrigger("Hit");
-            Empuje(other.GetContact(0).point);
-            QuitarVidas();
+            this.GetComponent<Animator>().SetTrigger("Die"); 
+            this.GetComponent<PlayerInput>().enabled = false;
+            
+            StartCoroutine(Esperar());
+
         }
     }
 
-    private void Empuje(Vector2 puntoGolpe)
-    {
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        Debug.Log("Punto de golpe: " + puntoGolpe);
-        Debug.Log("Velocidad de rebote: " + velocidadRebote);
-        Debug.Log("Velocidad actual: " + rb.velocity);
-        rb.velocity = new Vector2(-velocidadRebote.x * puntoGolpe.x, velocidadRebote.y);
+    private IEnumerator Esperar(){
+        yield return new WaitForSeconds(0.85f);
+        this.GetComponent<PlayerInput>().enabled = true;
+        this.GetComponent<Animator>().SetTrigger("EndDie"); 
+        Respawn();
+
     }
+
+
 
 }

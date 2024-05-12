@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     private AudioSource audioSource;
 
     public Animator animator;
+    public bool canMove = true;
 
     private void Start() {
         rb = GetComponent<Rigidbody2D>();
@@ -28,18 +29,19 @@ public class PlayerController : MonoBehaviour
 
     private void OnMove(InputValue movementValue)
     {
-        Vector2 movementVector = movementValue.Get<Vector2>();
-        movementX = movementVector.x;
+            Vector2 movementVector = movementValue.Get<Vector2>();
+            movementX = movementVector.x;
 
-        if (movementX > 0) {
-            transform.localScale = new Vector3(1, 1, 1);
-        } else if (movementX < 0) {
-            transform.localScale = new Vector3(-1, 1, 1);
-        }
-        if (movementX == 0) {
-            animator.SetBool("Run", false);
-        } else
-        animator.SetBool("Run", true);
+            if (movementX > 0) {
+                transform.localScale = new Vector3(1, 1, 1);
+            } else if (movementX < 0) {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+            if (movementX == 0) {
+                animator.SetBool("Run", false);
+            } else
+            animator.SetBool("Run", true);
+        
     }
 
     private void FixedUpdate() {
