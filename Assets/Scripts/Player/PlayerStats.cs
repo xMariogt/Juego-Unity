@@ -8,7 +8,6 @@ public class PlayerStats : MonoBehaviour
     public bool hasSword = false;
     public int life = 4;
     public int maxLife = 5;
-
     public bool hasTNT = false;
 
 }

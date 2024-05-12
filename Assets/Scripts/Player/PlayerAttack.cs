@@ -24,8 +24,10 @@ public class PlayerAttack : MonoBehaviour
     }
 
     private void OnAttack() {
-        if (playerStats.hasSword){
-            hit();
+        if (playerStats.hasSword && animator.GetCurrentAnimatorStateInfo(0).IsName("Attack") == false){
+            StartCoroutine(RealizaEspadazo());
+            animator.SetTrigger("Attack");
+            audioSource.PlayOneShot(espada);
         }
         if (playerStats.hasTNT) {
             detonaTNT.Detonar();
@@ -33,15 +35,18 @@ public class PlayerAttack : MonoBehaviour
     }
 
 
-    private void hit () {
+    private void Espadazo () {
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange);
-        animator.SetTrigger("Attack");
-        audioSource.PlayOneShot(espada);
         foreach (Collider2D enemy in hitEnemies) {
             if (enemy.CompareTag("Enemy")) {
                 enemy.GetComponent<Enemy>().TakeDamage(damage);
             }
         }
+    }
+
+    private IEnumerator RealizaEspadazo() {
+        yield return new WaitForSeconds(0.2f);
+        Espadazo();
     }
 
     private void OnDrawGizmos() {

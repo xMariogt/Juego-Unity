@@ -9,9 +9,10 @@ public class DetonarTNT : MonoBehaviour
     public GameObject piedra;
     public PlayerStats playerStats;
     public GameObject textoConteo;
-    private int cuentaAtras = 3;
+    private int CuentaAtras = 3;
     public GameObject textoInstrucciones;
     public AudioClip tntactivate;
+    public AudioClip audioConteo;
 
 
     private void OnTriggerEnter2D(Collider2D other) {
@@ -36,38 +37,48 @@ public class DetonarTNT : MonoBehaviour
         //si el tag player esta tocando el colider de la tnt
         if ( GetComponent<Collider2D>().IsTouchingLayers(LayerMask.GetMask("Player")))
         {
+            textoInstrucciones.SetActive(false);
             GetComponent<SpriteRenderer>().enabled = true;
             textoConteo.SetActive(true);
 
             GetComponent<AudioSource>().PlayOneShot(tntactivate);
-            StartCoroutine(Contar());
+            StartCoroutine(ActivarTNT());
             
         }
 
     }
 
-    private IEnumerator Contar(){
-        for (int i = cuentaAtras; i > 0; i--)
+    private IEnumerator ActivarTNT(){
+        for (int i = CuentaAtras; i > 0; i--)
         {
             textoConteo.GetComponent<TextMesh>().text = i.ToString();
             yield return new WaitForSeconds(1f);
+            GetComponent<AudioSource>().PlayOneShot(audioConteo);
         }
         textoConteo.SetActive(false);
-        Explotar();
+        IniciaExplosion();
     }
 
-    private void Explotar()
+    private void IniciaExplosion()
     {
-        
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(explosion.transform.position, radius);
+        foreach (Collider2D nearbyObject in colliders)
+        {
+            if (nearbyObject.CompareTag("Player"))
+            {
+                nearbyObject.GetComponent<PlayerRespawn>().Morir();
+            }
+            
+        }
         explosion.SetActive(true);
         piedra.GetComponent<SpriteRenderer>().enabled = false;
         piedra.GetComponent<Collider2D>().enabled = false;
         GetComponent<SpriteRenderer>().enabled = false;
         playerStats.hasTNT = false;
-        StartCoroutine(Esperar());
+        StartCoroutine(EsperaExplosion());
     }
 
-    private IEnumerator Esperar()
+    private IEnumerator EsperaExplosion()
     {
         yield return new WaitForSeconds(0.8f);
         explosion.GetComponent<SpriteRenderer>().enabled = false;
