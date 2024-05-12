@@ -51487,6 +51487,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStats: {fileID: 1588259529}
   minYPosition: -5
+  velocidadRebote: {x: 10, y: 2}
   vidas:
   - {fileID: 1415681082}
   - {fileID: 439189633}

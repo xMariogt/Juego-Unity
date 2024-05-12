@@ -6,6 +6,7 @@ public class PlayerRespawn : MonoBehaviour
 {
     public PlayerStats playerStats;
     public float minYPosition = -5f; // Valor m�nimo de la posici�n Y para reaparecer
+    public Vector2 velocidadRebote; // Velocidad de rebote al ser golpeado
 
 
     //public LifesUI lifesUI;
@@ -13,6 +14,7 @@ public class PlayerRespawn : MonoBehaviour
     private Vector3 inicio;
     private Rigidbody2D rb;
     private Vector3 respawnPosition; //Variable para guardar la posicion donde se quiere respawnear
+    
 
     private void Start()
     {
@@ -72,4 +74,23 @@ public class PlayerRespawn : MonoBehaviour
             Debug.Log("Game Over");
         }
     }
+
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        if (other.gameObject.CompareTag("Enemy")) {
+            this.GetComponent<Animator>().SetTrigger("Hit");
+            Empuje(other.GetContact(0).point);
+            QuitarVidas();
+        }
+    }
+
+    private void Empuje(Vector2 puntoGolpe)
+    {
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        Debug.Log("Punto de golpe: " + puntoGolpe);
+        Debug.Log("Velocidad de rebote: " + velocidadRebote);
+        Debug.Log("Velocidad actual: " + rb.velocity);
+        rb.velocity = new Vector2(-velocidadRebote.x * puntoGolpe.x, velocidadRebote.y);
+    }
+
 }
