@@ -3482,7 +3482,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -274.117, y: -152.465}
+  m_AnchoredPosition: {x: -288.701, y: -160.477}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &542525425
@@ -51473,11 +51473,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3685b8179cd399c68833405a86fde1ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStats: {fileID: 1588259529}
   JumpForce: 3.53
   Speed: 2
-  jumpSound: {fileID: 8300000, guid: 565035a66b4feeff4b0cdecdf723a3ff, type: 3}
   animator: {fileID: 1588259518}
+  canMove: 1
+  jumpSound: {fileID: 8300000, guid: 565035a66b4feeff4b0cdecdf723a3ff, type: 3}
 --- !u!114 &1588259525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51675,7 +51675,6 @@ MonoBehaviour:
   life: 4
   maxLife: 5
   hasTNT: 1
-  canMove: 1
 --- !u!1 &1634493889
 GameObject:
   m_ObjectHideFlags: 0
@@ -52103,6 +52102,7 @@ MonoBehaviour:
   textoConteo: {fileID: 215850187}
   textoInstrucciones: {fileID: 2138730565}
   tntactivate: {fileID: 8300000, guid: f373f41c27e309f80a431bd0afecdc9f, type: 3}
+  audioConteo: {fileID: 8300000, guid: 52b3934e166185f20b7fb5d4c6274bcf, type: 3}
 --- !u!70 &1702389540
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -52202,13 +52202,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f373f41c27e309f80a431bd0afecdc9f, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.883
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 190
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

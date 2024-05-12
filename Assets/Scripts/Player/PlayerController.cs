@@ -9,18 +9,15 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private float movementX;
-    private float movementY;
-
     public float JumpForce;
     public float Speed;
-    private bool isGrounded;
-
-    public AudioClip jumpSound;
-    private AudioSource audioSource;
-
     public Animator animator;
     public bool canMove = true;
+    public AudioClip jumpSound;
+    private AudioSource audioSource;
+    private float movementX;
+
+
 
     private void Start() {
         rb = GetComponent<Rigidbody2D>();

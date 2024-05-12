@@ -15,7 +15,7 @@ public class PlayerRespawn : MonoBehaviour
     private Vector3 inicio;
     private Rigidbody2D rb;
     private Vector3 respawnPosition; //Variable para guardar la posicion donde se quiere respawnear
-    
+    private GameObject enemy;
 
     private void Start()
     {
@@ -51,8 +51,9 @@ public class PlayerRespawn : MonoBehaviour
         // Reposiciona al personaje en la posición de respawn
         transform.position = respawnPosition;
         rb.velocity = Vector2.zero; // Resetea la velocidad para evitar problemas de movimiento al reaparecer
+        if (enemy != null)
+            enemy.GetComponent<Collider2D>().enabled = true;
         QuitarVidas();
-        this.GetComponent<Animator>().SetTrigger("EndDie"); 
     }
 
     public void AgregarVidas()
@@ -68,7 +69,6 @@ public class PlayerRespawn : MonoBehaviour
     {
         playerStats.life--;
         // Eliminar el último GameObject de la lista de vidas o el penúltimo si el último no está activado
-        
         if (playerStats.life > 0){
             GameObject vidaToRemove = vidas[playerStats.life];
             vidaToRemove.SetActive(false);
@@ -79,17 +79,21 @@ public class PlayerRespawn : MonoBehaviour
 
 
     private void OnCollisionEnter2D(Collision2D other) {
-        if (other.gameObject.CompareTag("Enemy")) {
-            this.GetComponent<Animator>().SetTrigger("Die"); 
-            this.GetComponent<PlayerInput>().enabled = false;
-            
-            StartCoroutine(Esperar());
-
+        if (other.gameObject.CompareTag("Enemy")){ 
+            enemy = other.gameObject;
+            enemy.GetComponent<Collider2D>().enabled = false;
+            Morir();
         }
     }
 
-    private IEnumerator Esperar(){
-        yield return new WaitForSeconds(0.85f);
+    public void Morir(){
+        this.GetComponent<Animator>().SetTrigger("Die"); 
+        this.GetComponent<PlayerInput>().enabled = false;
+        StartCoroutine(AnimarMuerte());
+    }
+
+    public IEnumerator AnimarMuerte(){
+        yield return new WaitForSeconds(2f);
         this.GetComponent<PlayerInput>().enabled = true;
         this.GetComponent<Animator>().SetTrigger("EndDie"); 
         Respawn();

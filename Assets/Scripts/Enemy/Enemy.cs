@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
     }
 
     private void Die() {
-        new WaitForSeconds(0.5f);
+        this.GetComponent<Collider2D>().enabled = false;
         audioSource.PlayOneShot(bat_die);
         animator.SetTrigger("Die");
         Destroy(gameObject, 0.8f);
