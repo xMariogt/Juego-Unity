@@ -11,6 +11,7 @@ public class CollectItem : MonoBehaviour
     public AudioClip recoger_vida;
     public AudioClip recoger_llave;
     public AudioClip recoger_tnt;
+    public AudioClip recoger_tiempo;
     public AudioSource audioSource;
     public MessageController messageController;
     public PlayerRespawn playerRespawn;
@@ -35,6 +36,9 @@ public class CollectItem : MonoBehaviour
                 playerStats.life++;
                 playerRespawn.AgregarVidas();
                 audioSource.PlayOneShot(recoger_vida);
+            } else if (itemType == "time"){
+                playerStats.tiempoRestante += 30;
+                audioSource.PlayOneShot(recoger_tiempo);
             }
             
             Destroy(item);

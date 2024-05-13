@@ -28,6 +28,8 @@ public class PlayerAttack : MonoBehaviour
             StartCoroutine(RealizaEspadazo());
             animator.SetTrigger("Attack");
             audioSource.PlayOneShot(espada);
+        } else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack") == true) {
+            
         }
         if (playerStats.hasTNT) {
             detonaTNT.Detonar();

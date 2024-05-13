@@ -6,27 +6,27 @@ using TMPro;
 
 public class Timer : MonoBehaviour
 {
-    public float totalTime = 60f; // Tiempo total del temporizador
-    private float timeRemaining; // Tiempo restante
-    public TMP_Text timerText; // Referencia al Texto de la interfaz de usuario
+    public float totalTime = 90f; // Tiempo total del temporizador
+    public TextMesh timerText; // Referencia al Texto de la interfaz de usuario
+    public PlayerStats playerStats;
 
     void Start()
     {
-        timeRemaining = totalTime; // Inicializar el tiempo restante
+        playerStats.tiempoRestante = totalTime; // Inicializar el tiempo restante
     }
 
     void Update()
     {
         // Restar tiempo
-        timeRemaining -= Time.deltaTime;
+        playerStats.tiempoRestante -= Time.deltaTime;
 
         // Actualizar el Texto del temporizador
-        timerText.text = "Time: " + Mathf.RoundToInt(timeRemaining).ToString();
+        timerText.text = "Tiempo: " + Mathf.RoundToInt(playerStats.tiempoRestante).ToString();
 
         // Si el tiempo restante es menor o igual a cero, realiza acciones necesarias
-        if (timeRemaining <= 0f)
+        if (playerStats.tiempoRestante <= 0f)
         {
-            // Por ejemplo, aquí podrías disminuir las vidas del jugador o finalizar el juego
+            // Por ejemplo, aquï¿½ podrï¿½as disminuir las vidas del jugador o finalizar el juego
             Debug.Log("Time's up!");
         }
     }
