@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public AudioClip jumpSound;
     private AudioSource audioSource;
     private float movementX;
+    private float tiempoEnElAire;
 
 
 
@@ -46,20 +47,23 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Update() {
-
-        
         
         if (CheckGround.isGrounded) {
             animator.SetBool("Jump", false);
+            tiempoEnElAire = 0;
         } else {
             animator.SetBool("Jump", true);
+            tiempoEnElAire += Time.deltaTime;
         }
     }
 
 
     private void OnJump()
     {
-        if (CheckGround.isGrounded) {
+        if (CheckGround.isGrounded ) {
+            rb.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
+            audioSource.PlayOneShot(jumpSound);
+        } else if (tiempoEnElAire < 0.25f && GetComponent<Animator>().GetBool("Jump") == false){
             rb.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
             audioSource.PlayOneShot(jumpSound);
         }

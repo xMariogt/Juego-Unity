@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 16.9779, y: -1.7636, z: 0}
-  m_LocalScale: {x: -1.458, y: -1.458, z: 1.458}
+  m_LocalScale: {x: -0.9351611, y: -0.9351611, z: 0.9351611}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -155,8 +155,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.17000002, y: 0.40000007}
+  m_Offset: {x: 0.006649713, y: -0.034463942}
+  m_Size: {x: 0.094056636, y: 0.33107266}
   m_Direction: 0
 --- !u!82 &8885049953928536916
 AudioSource:
