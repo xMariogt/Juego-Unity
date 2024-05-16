@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerRespawn : MonoBehaviour
 {
@@ -90,7 +91,7 @@ public class PlayerRespawn : MonoBehaviour
             GameObject vidaToRemove = vidas[playerStats.life];
             vidaToRemove.SetActive(false);
         } else {
-            Debug.Log("Game Over");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 
