@@ -7311,7 +7311,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -51746,6 +51746,7 @@ MonoBehaviour:
   velocidadRebote: {x: 10, y: 2}
   sonidoMuerte: {fileID: 8300000, guid: 01207e43fcb54f532a60e09897bdedff, type: 3}
   sonidoCaida: {fileID: 8300000, guid: a21bbb543808783c2a3d578ddf7ed4c0, type: 3}
+  sonidoPerder: {fileID: 8300000, guid: bbeff6799aae615438d994b6bbdbe860, type: 3}
   vidas:
   - {fileID: 1415681082}
   - {fileID: 439189633}

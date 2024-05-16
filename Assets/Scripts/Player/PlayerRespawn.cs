@@ -9,8 +9,9 @@ public class PlayerRespawn : MonoBehaviour
     public PlayerStats playerStats;
     public float minYPosition = -50f; // Valor m�nimo de la posici�n Y para reaparecer
     public Vector2 velocidadRebote; // Velocidad de rebote al ser golpeado
+    private AudioSource audioSource;
     public AudioClip sonidoMuerte;
-     public AudioClip sonidoCaida;
+    public AudioClip sonidoCaida;
 
     //public LifesUI lifesUI;
     public List<GameObject> vidas = new List<GameObject>();
@@ -91,6 +92,7 @@ public class PlayerRespawn : MonoBehaviour
             GameObject vidaToRemove = vidas[playerStats.life];
             vidaToRemove.SetActive(false);
         } else {
+            
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
