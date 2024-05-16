@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class Timer : MonoBehaviour
         if (playerStats.tiempoRestante <= 0f)
         {
             // Por ejemplo, aqu� podr�as disminuir las vidas del jugador o finalizar el juego
-            Debug.Log("Time's up!");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 }
