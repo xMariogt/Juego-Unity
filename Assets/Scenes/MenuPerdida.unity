@@ -299,7 +299,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 150
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -324,8 +324,8 @@ Transform:
   m_GameObject: {fileID: 78549923}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 273, y: 151, z: -10}
+  m_LocalScale: {x: 2.3445, y: 2.3445, z: 2.3445}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -426,15 +426,15 @@ RectTransform:
   m_GameObject: {fileID: 366974132}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1.1116916, y: 1.5501736, z: 1.5501736}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1725725058}
   m_Father: {fileID: 1967786998}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.76755756, y: 0.17027481}
-  m_AnchorMax: {x: 0.76755756, y: 0.17027481}
-  m_AnchoredPosition: {x: -10, y: -6}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 141, y: -99.6}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &366974134
@@ -559,15 +559,15 @@ RectTransform:
   m_GameObject: {fileID: 1281970752}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1.1116916, y: 1.5501736, z: 1.5501736}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2055579823}
   m_Father: {fileID: 1967786998}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.76755756, y: 0.17027481}
-  m_AnchorMax: {x: 0.76755756, y: 0.17027481}
-  m_AnchoredPosition: {x: -363, y: -1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -130, y: -102}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1281970754
