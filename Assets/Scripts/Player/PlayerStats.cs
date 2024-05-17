@@ -10,6 +10,6 @@ public class PlayerStats : MonoBehaviour
     public int maxLife = 5;
     public bool hasTNT = false;
 
-    public float tiempoRestante = 90;
+    public float tiempoRestante = 180;
 
 }

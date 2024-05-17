@@ -7,12 +7,13 @@ using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
-    public float totalTime = 90f; // Tiempo total del temporizador
+    public float totalTime; // Tiempo total del temporizador
     public TextMesh timerText; // Referencia al Texto de la interfaz de usuario
     public PlayerStats playerStats;
 
     void Start()
     {
+        totalTime = playerStats.tiempoRestante;
         playerStats.tiempoRestante = totalTime; // Inicializar el tiempo restante
     }
 
