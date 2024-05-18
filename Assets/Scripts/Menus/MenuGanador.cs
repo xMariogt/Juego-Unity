@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuGanador : MonoBehaviour
 {
-    // Start is called before the first frame update
+
     public void Iniciar()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
