@@ -34,9 +34,11 @@ public class DetonarTNT : MonoBehaviour
 
     public void Detonar()
     {
-        //si el tag player esta tocando el colider de la tnt
+         
         if ( GetComponent<Collider2D>().IsTouchingLayers(LayerMask.GetMask("Player")))
         {
+            playerStats.hasTNT = false;
+            textoInstrucciones.GetComponent<TextMesh>().text = "";
             textoInstrucciones.SetActive(false);
             GetComponent<SpriteRenderer>().enabled = true;
             textoConteo.SetActive(true);
