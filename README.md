@@ -1,6 +1,6 @@
 # GetOut
 
-Bienvenido a GetOut, un juego platformer desarrollado en Unity como parte del curso Practica Intermedia de Ingenierá en Ciencias y Sistemas del Centro Universitario de Oriente CUNORI/USAC.
+Bienvenido a GetOut, un juego platformer desarrollado en Unity como parte del curso Practica Intermedia de Ingeniería en Ciencias y Sistemas del Centro Universitario de Oriente CUNORI/USAC.
 
 ## Descripción
 GetOut es un juego de tipo Plataforma en el que te encuentras atrapado en una cueva y debes encontrar la salida lo antes posible, superando obstáculos y explorando tu entorno. 
